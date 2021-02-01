@@ -71,6 +71,9 @@ async def accept(ctx, member : discord.Member, amount=2):
         await ctx.send(f'You don\'t have permission to do that!')
 
 
+"""
+This stuff don't work yet! Probably going to be removed. 
+
 @client.command(pass_context=True)
 async def denied(ctx, member : discord.Member, amount=2):
     if ctx.author.guild_permissions.administrator:
@@ -78,7 +81,7 @@ async def denied(ctx, member : discord.Member, amount=2):
         await ctx.channel.purge(limit=amount)
     if not ctx.author.guild_permissions.administrator:
         await ctx.send(f'You don\'t have permission to do that!')
-
+"""
 
 
 
