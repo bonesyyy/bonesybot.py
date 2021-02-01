@@ -66,11 +66,20 @@ async def accept(ctx, member : discord.Member, amount=2):
         await ctx.channel.purge(limit=amount)
         await member.add_roles(role)
         channel = client.get_channel(770282902151364661)
-        await channel.send(f'Welcome {member.mention}!')
+        await channel.send(f'Welcome {member.mention}! Grab some roles at <#770284180386873356> and <#773309566590255125>!')
+    if not ctx.author.guild_permissions.administrator:
+        await ctx.send(f'You don\'t have permission to do that!')
+
+
+@client.command(pass_context=True)
+async def denied(ctx, member : discord.Member, amount=2):
+    if ctx.author.guild_permissions.administrator:
+        await ctx.kick(member)
+        await ctx.channel.purge(limit=amount)
     if not ctx.author.guild_permissions.administrator:
         await ctx.send(f'You don\'t have permission to do that!')
 
 
 
-client.run(os.environ['token'])
 
+client.run(os.environ['token'])
